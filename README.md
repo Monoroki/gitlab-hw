@@ -8,7 +8,6 @@
 Установите Prometheus.
 
 **Ответ:**
-
 [Скриншот к заданию 1](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom1.png)
 
  
@@ -30,12 +29,6 @@
 **Ответ:**
 
 [Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.1.png)  
-[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.2.png) 
+[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.2.png)   
 ---
 
-### Задание 4
-Создайте свой кастомный дашборд.
-
-**Ответ:**
-
-[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/zabbix3.png)  
