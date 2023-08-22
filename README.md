@@ -1,36 +1,36 @@
-# Домашнее задание к занятию «Система мониторинга Zabbix. Часть 2 - `Романов Кирилл`
+# Домашнее задание к занятию «Система мониторинга Prometheus» - `Романов Кирилл`
 
 
 ---
 
 ### Задание 1 
 
-Установите Zabbix Server с веб-интерфейсом.Создайте свой шаблон, в котором будут элементы данных, мониторящие загрузку CPU и RAM хоста.
+Установите Prometheus.
 
 **Ответ:**
 
-[Скриншот к заданию 1](https://github.com/Monoroki/gitlab-hw/tree/main/img/zabbix1.png)
+[Скриншот к заданию 1](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom1.png)
 
  
 ---
 
 ### Задание 2 
 
-Добавьте в Zabbix два хоста и задайте им имена <фамилия и инициалы-1> и <фамилия и инициалы-2>. Например: ivanovii-1 и ivanovii-2.
+Установите Node Exporter.
 
 **Ответ:**
-Совместно с заданием 3
+[Скриншот к заданию 2](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.png) 
 
 ---
 
 ### Задание 3
 
-Привяжите созданный шаблон к двум хостам. Также привяжите к обоим хостам шаблон Linux by Zabbix Agent.
+Подключите Node Exporter к серверу Prometheus.
 
 **Ответ:**
 
-[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/zabbix2.png)  
-
+[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.1.png)  
+[Скриншот к заданию 3](https://github.com/Monoroki/gitlab-hw/tree/main/img/prom2.2.png) 
 ---
 
 ### Задание 4
