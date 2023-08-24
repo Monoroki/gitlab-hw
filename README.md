@@ -13,9 +13,9 @@
 
 <details>
 
-![Скриншот01](https://github.com/Monoroki/gitlab-hw/tree/main/img/hsrp1.png)
+![Скриншот01](https://github.com/Monoroki/gitlab-hw/blob/main/img/hsrp1.png)
 
-![Скриншот02](https://github.com/Monoroki/gitlab-hw/tree/main/img/hsrp2.png)
+![Скриншот02](https://github.com/Monoroki/gitlab-hw/blob/main/img/hsrp2.png)
 
 [Cхема в формате pkt](https://github.com/Monoroki/gitlab-hw/tree/main/file/hsrp_DZ.pkt)
 
@@ -46,9 +46,9 @@ fi
 
 ![keep1.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
 
-![keep2.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
+![keep2.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep2.png)
 
-![keep4.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
+![keep4.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep4.png)
 
 </details>
 
