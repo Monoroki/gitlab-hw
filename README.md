@@ -1,6 +1,6 @@
 ---
 # Домашнее задание к занятию 1 «Disaster recovery и Keepalived» - Романов Кирилл
-TEST SSH
+
 ### Задание 1
 
 - Дана [схема](1/hsrp_advanced.pkt) для Cisco Packet Tracer, рассматриваемая в лекции.
