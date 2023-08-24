@@ -35,20 +35,20 @@
 
 <details>
 
-
+```
 #!/bin/bash
 if [[ $(netstat -tuln | grep LISTEN | grep :80) ]] && [[ -f /var/www/html/index.nginx-debian.html ]]; then
         exit 0
 else
         sudo systemctl stop keepalived
 fi
+```
 
+![keep1.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
 
-![keep1.png](https://github.com/Monoroki/gitlab-hw/tree/main/img/keep1.png)
+![keep2.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
 
-![keep2.png](https://github.com/Monoroki/gitlab-hw/tree/main/img/keep2.png)
-
-![keep4.png](https://github.com/Monoroki/gitlab-hw/tree/main/img/keep4.png)
+![keep4.png](https://github.com/Monoroki/gitlab-hw/blob/main/img/keep1.png)
 
 </details>
 
