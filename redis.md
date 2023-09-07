@@ -27,7 +27,7 @@
 
 <details>
 
-![image](https://github.com/Monoroki/gitlab-hw/tree/main/img/re1.png)
+![Скриншот01](https://github.com/Monoroki/gitlab-hw/blob/main/img/re1.png)
 
 </details>
 
@@ -43,7 +43,8 @@
 
 <details>
 
-![image](https://github.com/Monoroki/gitlab-hw/tree/main/img/re2.png) 
+![Скриншот02](https://github.com/Monoroki/gitlab-hw/blob/main/img/re2.png)
+
 </details>
 
 ---
@@ -58,7 +59,7 @@
 
 <details>
 
-![image](https://github.com/Monoroki/gitlab-hw/tree/main/img/re3.png) 
+![Скриншот03](https://github.com/Monoroki/gitlab-hw/blob/main/img/re3.png)
 
 </details>
 
