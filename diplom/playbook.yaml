@@ -1,0 +1,206 @@
+---
+- name: nginx
+  hosts: nginx
+  become: true
+  tags: 
+   - nginx
+  tasks:
+  
+   - name: Update apt
+     apt:
+      update_cache: yes
+
+   - name: Install nginx
+     apt: 
+      name: nginx 
+      state: latest
+
+   - name: Change main page
+     ansible.builtin.copy:
+      src: /home/men/ansible/index.nginx-debian.html
+      dest: /var/www/html/index.nginx-debian.html
+      owner: men
+      group: men
+      mode: '0644'
+
+
+- name: filebeat
+  hosts: nginx
+  become: true
+  tags: 
+   - filebeat
+  tasks:
+  
+
+  - name: Get Filebeat
+    ansible.builtin.get_url:
+      url: https://mirror.yandex.ru/mirrors/elastic/7/pool/main/f/filebeat/filebeat-7.17.9-amd64.deb
+      dest: /home/men/
+
+  - name: Install Filebeat
+    apt:
+      deb: /home/men/filebeat-7.17.9-amd64.deb
+
+  - name: Systemctl daemon reload
+    systemd:
+      daemon_reload: true
+      name: filebeat.service
+      state: started
+
+  - name: Copy conf-file
+    copy:
+      src: /home/men/ansible/filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+      mode: 0644
+      owner: root
+      group: root
+
+  - name: Restart Filebeat
+    systemd:
+      name: filebeat.service
+      state: restarted
+
+- name: elastic
+  hosts: elastic
+  become: true
+  tags: 
+   - elastic
+  tasks:
+    
+  - name: Update apt
+    apt:
+      update_cache: yes
+
+  - name: Install java
+    apt: 
+     name: openjdk-11-jdk 
+     state: latest
+
+  - name: Get elastic
+    ansible.builtin.get_url:
+      url: https://mirror.yandex.ru/mirrors/elastic/7/pool/main/e/elasticsearch/elasticsearch-7.17.9-amd64.deb
+      dest: /home/men/
+
+  - name: Install elastic
+    apt:
+      deb: /home/men/elasticsearch-7.17.9-amd64.deb
+
+  - name: Systemctl daemon reload
+    systemd:
+      daemon_reload: true
+      name: elasticsearch.service
+      state: started
+
+  - name: Copy conf-file elastic
+    copy:
+      src: /home/men/ansible/elasticsearch.yml
+      dest: /etc/elasticsearch/elasticsearch.yml
+      mode: 0644
+      owner: root
+      group: elasticsearch
+
+  - name: Restart elastic
+    systemd:
+      name: elasticsearch.service
+      state: restarted
+
+- name: kibana
+  hosts: kibana1
+  become: true
+  tags: 
+   - kibana
+  tasks:
+  
+  - name: Get Kibana
+    ansible.builtin.get_url:
+      url: https://mirror.yandex.ru/mirrors/elastic/7/pool/main/k/kibana/kibana-7.17.9-amd64.deb
+      dest: /home/men/
+
+  - name: Install Kibana
+    apt:
+      deb: /home/men/kibana-7.17.9-amd64.deb
+
+  - name: Systemctl daemon reload
+    systemd:
+      daemon_reload: true
+      name: kibana.service
+      state: started
+
+  - name: Copy conf-file kibana
+    copy:
+      src: /home/men/ansible/kibana.yml
+      dest: /etc/kibana/kibana.yml
+      mode: 0644
+      owner: root
+      group: kibana
+
+  - name: Restart Kibana
+    systemd:
+      name: kibana.service
+      state: restarted
+
+- name: zabbix-server
+  hosts: zabbixservers
+  become: true
+  tags: 
+   - zabbix-server
+  tasks:
+
+  - name: Update apt
+    apt:
+     update_cache: yes
+
+  - name: Install Docker
+    apt: 
+     name: docker 
+     state: latest
+
+  - name: Install DockerComp
+    apt: 
+     name: docker-compose 
+     state: latest
+  
+  
+  - name: copy Docker Compose files
+    copy:
+     src: /home/men/ansible/docker-compose.yml
+     dest: /home/men/docker-compose.yml
+    
+
+  - name: deploy Docker Compose stack
+    community.docker.docker_compose:
+     project_src: /home/men/
+     files:
+     - docker-compose.yml
+- name: zabbix-agent
+  hosts: nginx
+  become: true
+  tags: 
+   - zabbix-agent
+  tasks:
+    
+  - name: install zabbix-agent
+    apt:
+      name: zabbix-agent
+      state: latest
+
+  - name: stop zabbix-agent
+    service:
+      name: zabbix-agent.service
+      state: stopped
+
+  - name: Copy conf-file
+    copy:
+      src: /home/men/ansible/zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+      mode: 0644
+      owner: root
+      group: root
+
+  - name: Start zabbix-agent
+    service:
+      name: zabbix-agent.service
+      state: started
+  
+  
+
