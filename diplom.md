@@ -150,7 +150,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.png)
 
-** Elastic**
+**Elastic**
 
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.2.png)
 
