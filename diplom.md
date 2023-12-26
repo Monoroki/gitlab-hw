@@ -145,13 +145,19 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 # Шаг3 "Проверяем доступность, настраиваем дашборды Zabbix"
  - дашборды настроил на метрики загрузки CPU и памяти
 <details>
+
 **Баллансировщик**
+
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.png)
+
 ** Elastic**
+
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.2.png)
 
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.3.png)
+
 **Zabbix**
+
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.4.png)
 
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.5.png)
@@ -159,6 +165,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.6.png)
 
 ![image](https://github.com/Monoroki/gitlab-hw/blob/main/img/step4.7.png)
+
 </details>
 
 ----
