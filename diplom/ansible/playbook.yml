@@ -17,12 +17,13 @@
 
    - name: Change main page
      ansible.builtin.copy:
-      src: /home/men/ansible/index.nginx-debian.html
+      src: files/index.nginx-debian.html
       dest: /var/www/html/index.nginx-debian.html
-      owner: men
-      group: men
-      mode: '0644'
+      owner: root
+      group: root
+      mode: 0644
 
+   
 
 - name: filebeat
   hosts: nginx
@@ -47,18 +48,21 @@
       name: filebeat.service
       state: started
 
-  - name: Copy conf-file
-    copy:
-      src: /home/men/ansible/filebeat.yml
-      dest: /etc/filebeat/filebeat.yml
-      mode: 0644
+  - name: Cange conf-file
+    template: 
+      src: template/filebeat.yml
+      dest: /etc/filebeat/filebeat.yml 
       owner: root
       group: root
+      mode: 0755 
+    notify: Restart Filebeat
+ 
+  handlers: 
 
-  - name: Restart Filebeat
-    systemd:
-      name: filebeat.service
-      state: restarted
+    - name: Restart Filebeat
+      systemd:
+        name: filebeat.service
+        state: restarted
 
 - name: elastic
   hosts: elastic
@@ -91,14 +95,16 @@
       name: elasticsearch.service
       state: started
 
-  - name: Copy conf-file elastic
-    copy:
-      src: /home/men/ansible/elasticsearch.yml
+  - name: Cange conf-file elastic
+    template: 
+      src: template/elasticsearch.yml
       dest: /etc/elasticsearch/elasticsearch.yml
-      mode: 0644
       owner: root
-      group: elasticsearch
-
+      group: root
+      mode: 0755 
+    notify: Restart elastic
+  
+  handlers:
   - name: Restart elastic
     systemd:
       name: elasticsearch.service
@@ -126,14 +132,16 @@
       name: kibana.service
       state: started
 
-  - name: Copy conf-file kibana
-    copy:
-      src: /home/men/ansible/kibana.yml
+  - name: Cange conf-file kibana
+    template: 
+      src: template/kibana.yml
       dest: /etc/kibana/kibana.yml
-      mode: 0644
       owner: root
-      group: kibana
-
+      group: root
+      mode: 0755 
+    notify: Restart Kibana
+ 
+  handlers:
   - name: Restart Kibana
     systemd:
       name: kibana.service
@@ -162,9 +170,12 @@
   
   
   - name: copy Docker Compose files
-    copy:
-     src: /home/men/ansible/docker-compose.yml
-     dest: /home/men/docker-compose.yml
+    template: 
+      src: template/docker-compose.yml
+      dest: /home/men/
+      owner: root
+      group: root
+      mode: 0755 
     
 
   - name: deploy Docker Compose stack
@@ -189,13 +200,14 @@
       name: zabbix-agent.service
       state: stopped
 
-  - name: Copy conf-file
-    copy:
-      src: /home/men/ansible/zabbix_agentd.conf
+  - name: Cange conf-file zabbix-agent
+    template: 
+      src: template/zabbix_agentd.conf
       dest: /etc/zabbix/zabbix_agentd.conf
-      mode: 0644
       owner: root
       group: root
+      mode: 0755 
+  
 
   - name: Start zabbix-agent
     service:

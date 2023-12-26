@@ -15,7 +15,7 @@ services:
     volumes:
       - ./pg_data:/var/lib/postgresql/data/pgdata
     environment:
-      POSTGRES_PASSWORD: romanovkv12!3!!
+      POSTGRES_PASSWORD: {{pass}}
       POSTGRES_DB: romanovkv-db
       PGDATA: /var/lib/postgresql/data/pgdata
     networks:
@@ -48,7 +48,7 @@ services:
     environment:
       DB_SERVER_HOST: '172.22.0.2'
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: romanovkv12!3!!
+      POSTGRES_PASSWORD: {{pass}}
     ports:
       - "10051:10051"
     networks:
@@ -67,7 +67,7 @@ services:
     environment:
       DB_SERVER_HOST: '172.22.0.2'
       POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: romanovkv12!3!!
+      POSTGRES_PASSWORD: {{pass}}
       ZBX_SERVER_HOST: "zabbix_wgui"
       PHP_TZ: "Europe/Moscow"
     ports:
